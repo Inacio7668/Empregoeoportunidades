@@ -1,0 +1,839 @@
+<html lang="en" data-lt-installed="true"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Adicionar Emprego</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+    <link href="https://sabetudo.co.mz/admin/assets/plugins/select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://sabetudo.co.mz/images/favicon.png">
+
+    <script src="https://sabetudo.co.mz/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/assets/css/imgareaselect.css">
+    
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/assets/css/style.css">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+<body><audio class="audio-for-speech" src=""></audio><div class="translate-tooltip-mtz translator-hidden">
+                    <div class="header">
+                        <div class="header-controls">
+                            Translator
+                        </div>
+                        <div class="header-controls">
+                            <span class="support"></span>
+                        </div>
+                        <div class="header-controls">
+                            <span class="settings"></span>
+                        </div>
+                    </div>
+                    <div class="translated-text">
+                        <div class="words"></div>
+                        <div class="sentences"></div>
+                    </div>
+                </div><span class="translate-button-mtz translator-hidden"></span>
+
+    <aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="/gestao"><img src="C:\xampp\htdocs\dashboard\images\da3bbec4-2fcb-4f30-8183-9659fd52b1b3 (1).png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="/gestao"><img src="C:\xampp\htdocs\dashboard\images\da3bbec4-2fcb-4f30-8183-9659fd52b1b3 (1).png" alt="Logo"></a>
+        </div>
+
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/gestao"> <i class="menu-icon fa fa-dashboard"></i>Painel de Gestão</a>
+                </li>
+                
+                <li class="active">
+                    <a href="/" target="_blank"> <i class="menu-icon fa fa-eye"></i>Página inicial</a>
+                </li>
+
+               <h3 class="menu-title">Clientes</h3>
+             <li class="menu-item-has-children dropdown show">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-handshake-o"></i>Usuario</a>
+                 <ul class="sub-menu children dropdown-menu show">
+                     <li><i class="fa fa-list"></i><a href="https://sabetudo.co.mz/gestao/oportunidades">Lista de Usuario</a></li>
+                    <li><i class="fa fa-plus"></i><a href="https://sabetudo.co.mz/gestao/oportunidades/adicionar">Adicionar</a></li>
+                 </ul>
+            </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-circle-o"></i>Pacotes</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list"></i><a href="https://sabetudo.co.mz/gestao/pacotes">pacotes</a></li>
+                            <li><i class="fa fa-plus"></i><a href="https://sabetudo.co.mz/gestao/pacotes/adicionar">Adicionar</a></li>
+                        </ul>
+                    </li>               
+            <h2 class="menu-title">Emprego e Oportunidades</h2><!-- /.menu-title -->
+            <li class="menu-item-has-children dropdown show">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-handshake-o"></i>Noticias</a>
+                <ul class="sub-menu children dropdown-menu show">
+                    <li><i class="fa fa-list"></i><a href="https://sabetudo.co.mz/gestao/oportunidades">Notiicias Publicadas</a></li>
+                    <li><i class="fa fa-plus"></i><a href="https://sabetudo.co.mz/gestao/oportunidades/adicionar">Adicionar</a></li>
+                </ul>
+            </li>
+                
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-handshake-o"></i>Empregos</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="https://sabetudo.co.mz/gestao/oportunidades">Empregos Publicados</a></li>
+                        <li><i class="fa fa-plus"></i><a href="https://sabetudo.co.mz/gestao/oportunidades/adicionar">Adicionar</a></li>
+                    </ul>
+                </li>
+</aside>
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+<header id="header" class="header">
+
+    <div class="header-menu">
+
+        <div class="col-sm-7">
+            <a id="menuToggle" class="menutoggle pull-left bg-primary"><i class="fa fa fa-tasks"></i></a>
+            <div class="header-left">
+                <button class="search-trigger"><i class="fa fa-search"></i></button>
+                                <span class="text-uppercase">Seu pacote expira em: <b>01-03-2024</b></span>
+                <div class="form-inline">
+                    <form class="search-form">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Procurar ..." aria-label="Search">
+                        <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+            <div class="user-area dropdown float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle" src="https://sabetudo.co.mz/storage/app/public/images/user/profile/noImage.png">
+                </a>
+
+                <div class="user-menu dropdown-menu">
+                    <a class="nav-link" href="https://sabetudo.co.mz/gestao/perfil"><i class="fa fa-user"></i> Meu Perfil</a>
+                    <a class="nav-link" href="https://sabetudo.co.mz/gestao/pagamentos"><i class="fa fa-money"></i> Pagamentos</a>
+                    <!--<a class="nav-link" href="https://sabetudo.co.mz/gestao/notificacoes"><i class="fa fa-bell"></i> Notificações <span class="badge badge-danger">0</span></a>-->
+                    <a class="nav-link" href="https://sabetudo.co.mz/logout" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Sair</a>
+                    <form id="logout-form" action="https://sabetudo.co.mz/logout" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="a8HYjZWAwwjG7HGiCcLsx9N6rf8UAE5l4gQPOoA1">                    </form>
+                    <a class="nav-link" href="https://sabetudo.co.mz/cancelar-subscricao" onclick="event.preventDefault();
+                    document.getElementById('subs-form').submit();"><i class="fa fa-power-off"></i> Cancelar Subscrição</a>
+                    <form id="subs-form" action="https://sabetudo.co.mz/cancelar-subscricao" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="a8HYjZWAwwjG7HGiCcLsx9N6rf8UAE5l4gQPOoA1">                    </form>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+</header><!-- /header -->        <div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Painel de Gestão</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active"><a href="https://sabetudo.co.mz/gestao">Painel de Gestão   
+</a></li><li class="active"><a href="https://sabetudo.co.mz/gestao/oportunidades">Emprego</a></li> 
+<li class="active"><a href="https://sabetudo.co.mz/gestao/oportunidades/adicionar">Adicionar</a></li> 
+
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>        <div class="content mt-3">
+    <div class="animated fadeIn">
+        <form action="https://sabetudo.co.mz/gestao/oportunidades/adicionar/guardar" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="a8HYjZWAwwjG7HGiCcLsx9N6rf8UAE5l4gQPOoA1">
+            <div class="row">
+                                
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header py-1">
+                            <strong>
+                                <div class="form-group my-0" style="display:block;">
+                                    <label for="imageInput">Imagem de Destaque : <span class="text-danger"><b>*</b></span></label>
+                                    <input type="file" name="imageInput" id="imageInput" class="image form-control-sm" required="">
+                                </div>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header"><strong>Adicionar</strong><small> Emprego e Oportunidades |<span class="text-danger"> Campos obrigatórios identificados por ("*") </span></small></div>
+                        <div class="card-body card-block">
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label class=" form-control-label">Designação <span class="text-danger"><b>*</b></span></label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="title" name="title" placeholder="Descrição da Vaga" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label class=" form-control-label">Breve Descrição <span class="text-danger"><b>*</b></span></label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="description" name="description" placeholder="Pequena descrição da vaga" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <label class=" form-control-label">
+                                        Entidade <span class="text-danger"><b>*</b></span>
+                                        <a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#addOpportunityEntity">
+                                            Add
+                                        </a>
+                                    </label>
+                                    <select name="entity" id="entity" class="form-control form-control-sm">
+                                        <option selected="" hidden="" disabled="">Selecione a Entidade</option>
+                                                                                    <option value="1">Ministério da Agricultura e Segurança Alimentar</option>
+                                                                                    <option value="2">Administração Nacional das Estradas</option>
+                                                                                    <option value="3">Administração Nacional das Estradas</option>
+                                                                                    <option value="4">Administração Nacional das Estradas</option>
+                                                                                    <option value="5">A Hidroelétrica de Cahora Bassa</option>
+                                                                                    <option value="6">Hidroelétrica de Cahora Bassa</option>
+                                                                                    <option value="7">Direcção Provincial da Economia e Finanças</option>
+                                                                                    <option value="11">UNICEF</option>
+                                                                                    <option value="12">Republica de Mocambique</option>
+                                                                                    <option value="13">Total</option>
+                                                                                    <option value="14">Standard Banck</option>
+                                                                                    <option value="15">Standard Bank</option>
+                                                                                    <option value="16">do Instituto Nacional de Desenvolvimento da Pesca e Aquacultura</option>
+                                                                                   <option value="20">Hidroeléctrica de Cahora Bassa</option>
+                                                                                    <option value="21">Direcção Nacional de Gestão de Recursos</option>
+                                                                                    <option value="22">Serviço Provincial De Economia E Finanças</option>
+                                                                                    <option value="23">Serviço Provincial De Economia E Finanças</option>
+                                                                                    <option value="24">Serviço Provincial De Economia E Finanças</option>
+                                                                                    <option value="25">Serviço Provincial De Economia E Finanças</option>
+                                                                                    <option value="26">Fundo Nacional de Desenvolvimento Sustentavel</option>
+                                                                                    <option value="27">MSPH ICAP</option>
+                                                                                    <option value="28">MSPH ICAP</option>
+                                                                                    <option value="29">Banco de Moçambique</option>
+                                                                                    <option value="30">Sociedade de Noticias.</option>
+                                                                                    <option value="31">Plan International</option>
+                                                                                   <option value="35">Sociedade de Desenvolvimento Urbano da Beira</option>
+                                                                                    <option value="38">Kenmare Resources pic</option>
+                                                                                    <option value="40">Movitel</option>
+                                                                                    <option value="42">ADPP Moçambique</option>
+                                                                                    <option value="43">Instituto Superior Politécnico de Songo</option>
+                                                                                    <option value="44">Programa das Nações Unidas para o Desenvolvimento</option>
+                                                                                    <option value="45">Eletricidade de Moçambique</option>
+                                                                                    <option value="46">Instituto Nacional de Governo Electrónico</option>
+                                                                                    <option value="47">Instituto Nacional de Gestão de Calamidades</option>
+                                                                                    <option value="48">Alto Comissariado Britânico Maputo</option>
+                                                                                    <option value="49">Sasol</option>
+                                                                                    <option value="50">Giz</option>
+                                                                                    <option value="51">Instituto de Amêndoas de Moçambique</option>
+                                                                                    <option value="52">Snv Organização Holandesa De Desenvolvimento</option>
+                                                                                    <option value="53">Fundo Nacional de Energia</option>
+                                                                                    <option value="54">Universidade Lúrio - UniLúrio</option>
+                                                                                    <option value="55">JHPIEGO Mozambique</option>
+                                                                                    <option value="56">Instituto Nacional de Inspecçào do Pescado,</option>
+                                                                                    <option value="57">Fundo de Energia</option>
+                                                                                    <option value="58">Liga Moçambicana de Futebol</option>
+                                                                                    <option value="59">C.Holdings</option>
+                                                                                    <option value="60">Aldeia de Crianças SOS Moçambique</option>
+                                                                                    <option value="61">Ministério da Saúde</option>
+                                                                                    <option value="62">TECHNOSERVE</option>
+                                                                                    <option value="63">Anónima</option>
+                                                                                    <option value="64">CISM</option>
+                                                                                    <option value="65">CISM</option>
+                                                                                    <option value="66">CRH Consultores</option>
+                                                                                    <option value="67">CRH Consultores</option>
+                                                                                    <option value="68">Istituto Oikos</option>
+                                                                                    <option value="69">Istituto Oikos</option>
+                                                                                    <option value="70">Helpcode Itália</option>
+                                                                                    <option value="71">MyBucks Mozambique</option>
+                                                                                    <option value="72">Elizabeth Glazer Peditric AIDS Foundation</option>
+                                                                                    <option value="73">Contact</option>
+                                                                                    <option value="74">Contact</option>
+                                                                                    <option value="75">h2n</option>
+                                                                                    <option value="76">h2n</option>
+                                                                                    <option value="77">SDO Mocambique</option>
+                                                                                    <option value="78">Fenix International</option>
+                                                                                    <option value="79">ESSOR</option>
+                                                                                    <option value="80">Aguas de Goba</option>
+                                                                                    <option value="81">Mabjeca Interior Design &amp; Services Lda</option>
+                                                                                    <option value="82">Mabjeca Interior Design &amp; Services Lda.</option>
+                                                                                    <option value="83">PHC Software</option>
+                                                                                    <option value="84">PHC Software</option>
+                                                                                    <option value="85">Lugela Digital Tecnicos</option>
+                                                                                    <option value="86">Lugela Digital Tecnicos</option>
+                                                                                    <option value="87">Lugela Digital Tecnicos</option>
+                                                                                    <option value="88">Lugela Digital Tecnicos</option>
+                                                                                    <option value="89">Aldelia</option>
+                                                                                    <option value="90">Aldelia</option>
+                                                                                    <option value="91">Conect Plus</option>
+                                                                                    <option value="92">World Vision Moçambique</option>
+                                                                                    <option value="93">Venyl Connection Services</option>
+                                                                                    <option value="94">Venyl Connection Services</option>
+                                                                                    <option value="95">Venyl Connection Services</option>
+                                                                                    <option value="96">Comité Internacional Da Cruz Vermelha</option>
+                                                                                    <option value="97">Aga Khan Academies</option>
+                                                                                    <option value="98">Aga Khan Academies</option>
+                                                                                    <option value="99">Aga Khan Academies</option>
+                                                                                    <option value="100">Negrita Industrial</option>
+                                                                                    <option value="101">Coral FLNG - FLNG</option>
+                                                                                    <option value="102">Coral FLNG - FLNG</option>
+                                                                                    <option value="103">Coral FLNG - FLNG</option>
+                                                                                    <option value="104">Coral FLNG - FLNG</option>
+                                                                                    <option value="105">MozGrain</option>
+                                                                                    <option value="106">MozGrain</option>
+                                                                                    <option value="107">MozGrain</option>
+                                                                                    <option value="108">CESC</option>
+                                                                                    <option value="109">CESC</option>
+                                                                                    <option value="110">PRI</option>
+                                                                                    <option value="111">PRI</option>
+                                                                                    <option value="112">Heading Moçambique</option>
+                                                                                    <option value="113">Heading Moçambique</option>
+                                                                                    <option value="114">Heading Moçambique</option>
+                                                                                    <option value="115">UNHCR</option>
+                                                                                    <option value="116">UNHCR</option>
+                                                                                    <option value="117">Elephant Bet Mozambique</option>
+                                                                                    <option value="118">Elephant Bet Mozambique</option>
+                                                                                    <option value="119">Tecnica PC</option>
+                                                                                    <option value="120">TechZone</option>
+                                                                                    <option value="121">Medihealth - Planos de Saúde, Limitada</option>
+                                                                                    <option value="122">Medihealth - Planos de Saúde, Limitada</option>
+                                                                                    <option value="123">Medihealth - Planos de Saúde, Limitada</option>
+                                                                                    <option value="124">Medihealth - Planos de Saúde, Limitada</option>
+                                                                                    <option value="125">Save The Children</option>
+                                                                                    <option value="126">Save The Children</option>
+                                                                                    <option value="127">CNFA</option>
+                                                                                    <option value="128">CNFA</option>
+                                                                                    <option value="129">JSI - John Snow Incorporated</option>
+                                                                                    <option value="130">JSI - John Snow Incorporated</option>
+                                                                                    <option value="131">JSI - John Snow Incorporated</option>
+                                                                                    <option value="132">Inther-Beira</option>
+                                                                                    <option value="133">Inther-Beira</option>
+                                                                                    <option value="134">Inther-Beira</option>
+                                                                                    <option value="135">Enviroserv</option>
+                                                                                    <option value="136">Muhlbauer ID Services GmbH</option>
+                                                                                    <option value="137">Muhlbauer ID Services GmbH</option>
+                                                                                    <option value="138">Muhlbauer ID Services GmbH</option>
+                                                                                    <option value="139">Sonepral Mozambique</option>
+                                                                                    <option value="140">Sonepral Mozambique</option>
+                                                                                    <option value="141">Sonepral Mozambique</option>
+                                                                                    <option value="142">IRRI</option>
+                                                                                    <option value="143">IRRI</option>
+                                                                                    <option value="144">Médicos Sem Fronteiras</option>
+                                                                                    <option value="145">Médicos Sem Fronteiras</option>
+                                                                                    <option value="146">SolarWorks</option>
+                                                                                    <option value="147">MOBI</option>
+                                                                                    <option value="148">MOBI</option>
+                                                                                    <option value="149">MOBI</option>
+                                                                                    <option value="150">ENABEL</option>
+                                                                                    <option value="151">ENABEL</option>
+                                                                                    <option value="152">Girl Child Rights (GCR)</option>
+                                                                                    <option value="153">Girl Child Rights (GCR)</option>
+                                                                                    <option value="154">Catholic Relief Services (CRS)</option>
+                                                                                    <option value="155">Catholic Relief Services (CRS)</option>
+                                                                                    <option value="156">MD Consultores</option>
+                                                                                    <option value="157">MD Consultores</option>
+                                                                                    <option value="158">MD Consultores</option>
+                                                                                    <option value="159">MD Consultores</option>
+                                                                                    <option value="160">MD Consultores</option>
+                                                                                    <option value="161">MD Consultores</option>
+                                                                                    <option value="162">MD Consultores</option>
+                                                                                    <option value="163">MD Consultores</option>
+                                                                                    <option value="164">Zenysis</option>
+                                                                                    <option value="165">SGB-Cape Mozambique</option>
+                                                                                    <option value="166">ACOMODEU</option>
+                                                                                    <option value="167">SOCODEVI</option>
+                                                                                    <option value="168">SOCODEVI</option>
+                                                                                    <option value="169">Ariel Glaser Pediatric AIDS Foundation</option>
+                                                                                    <option value="170">Aplitec</option>
+                                                                                    <option value="171">MECO Empreendimentos</option>
+                                                                                    <option value="172">MECO Empreendimentos</option>
+                                                                                    <option value="173">ITA, Sociedade Unipessoal, Lda</option>
+                                                                                    <option value="174">VITA, Sociedade Unipessoal, Lda</option>
+                                                                                    <option value="175">VITA, Sociedade Unipessoal, Lda</option>
+                                                                                    <option value="176">Food for the Hungry Association</option>
+                                                                                    <option value="177">SDDEC</option>
+                                                                                    <option value="178">USAID</option>
+                                                                                    <option value="179">technipFMC</option>
+                                                                                    <option value="180">Arene</option>
+                                                                                    <option value="181">Real Moz.</option>
+                                                                                    <option value="182">Nitidae</option>
+                                                                                    <option value="183">Empresa Anoninim</option>
+                                                                                    <option value="184">Empresa Anoninima</option>
+                                                                                    <option value="185">Empresa Anonima</option>
+                                                                                    <option value="186">WCS - Wildlife Conservation Society</option>
+                                                                                    <option value="187">BAT Mozambique</option>
+                                                                                    <option value="188">Abt Associates</option>
+                                                                                    <option value="189">UNFPA</option>
+                                                                                    <option value="190">UNFPA</option>
+                                                                                    <option value="191">ASSOCIAÇÃO PROGRESSO</option>
+                                                                                    <option value="192">Embaixada dos Estados Unidos</option>
+                                                                                    <option value="193">AMOR - Associação Moçambicana de Reciclagem</option>
+                                                                                    <option value="194">PSI - Population Services International</option>
+                                                                                    <option value="195">On Time Investiment</option>
+                                                                                    <option value="196">On Time Investiment</option>
+                                                                                    <option value="197">On Time Investiment</option>
+                                                                                    <option value="198">Jembi Health Systems</option>
+                                                                                    <option value="199">Instituto Técnico Lugenda de Ciências de Saúde</option>
+                                                                                    <option value="200">Serviço de Justiça e Trabalho</option>
+                                                                                    <option value="201">Associação Kulungwana</option>
+                                                                                    <option value="202">Diakonie Katastrophenhilfe</option>
+                                                                                    <option value="203">VillageReach</option>
+                                                                                    <option value="204">REPSSI</option>
+                                                                                    <option value="205">REPSSI</option>
+                                                                                    <option value="206">2iBi software</option>
+                                                                                    <option value="207">CICV - Comité Internacional da Cruz Vermelha</option>
+                                                                                    <option value="208">SOCODEVI</option>
+                                                                                    <option value="209">Eazi Access Rental</option>
+                                                                                    <option value="210">EDUdigital</option>
+                                                                                    <option value="211">Opushea</option>
+                                                                                    <option value="212">Tree Consulting Lda</option>
+                                                                                    <option value="213">ENGIE Energy Access Moçambique</option>
+                                                                                    <option value="214">Amado Mobílias, Lda</option>
+                                                                                    <option value="215">ITEC</option>
+                                                                                    <option value="216">Creative</option>
+                                                                                    <option value="217">Chemonics</option>
+                                                                                    <option value="218">Thinkwell</option>
+                                                                                    <option value="219">FHI 360</option>
+                                                                                    <option value="220">FDC</option>
+                                                                                    <option value="221">Medicos Del Mundo</option>
+                                                                                    <option value="222">GK Ancuabe Graphite Mine</option>
+                                                                                    <option value="223">World Education Inc.</option>
+                                                                                    <option value="224">N'weti</option>
+                                                                                    <option value="225">Girl Child Rights - GCR</option>
+                                                                                    <option value="226">Good Neighbors International Mozambique</option>
+                                                                                    <option value="227">Matchedje Manutenção</option>
+                                                                                    <option value="228">Associação Hankoni de PVHS e Simpatizantes - Hankoni</option>
+                                                                                    <option value="229">Helpcode Italia</option>
+                                                                                    <option value="230">Kotra</option>
+                                                                                    <option value="231">Fundación Ayuda en Acción</option>
+                                                                                    <option value="232">Moz Rigging Consultings &amp; Services Limitada</option>
+                                                                                    <option value="233">Eco Farm Mocambique, Lda</option>
+                                                                                    <option value="234">Lancet Laboratórios</option>
+                                                                                    <option value="235">Kutiza Consultoria &amp; Serviços</option>
+                                                                                    <option value="236">TearFund</option>
+                                                                                    <option value="237">TearFund</option>
+                                                                                    <option value="238">BVi Engenheiros Consultores Moçambique Lda.</option>
+                                                                                    <option value="239">Tablu Tecnologias, Lda</option>
+                                                                                    <option value="240">Eco Farm Mocambique, Lda</option>
+                                                                                    <option value="241">Peace Parks Foundation</option>
+                                                                                    <option value="242">Estúdio Atelier</option>
+                                                                                    <option value="243">DAI</option>
+                                                                                    <option value="244">Adra Moçambique</option>
+                                                                                    <option value="245">Governo do Distrito de Ibo</option>
+                                                                                    <option value="246">Cimentos de Moçambique</option>
+                                                                                    <option value="247">FGH – Friends in Global Health</option>
+                                                                                    <option value="248">Médicos com África CUAMM</option>
+                                                                                    <option value="249">Parmalat</option>
+                                                                                    <option value="250">Macs in Moz</option>
+                                                                                    <option value="251">Grindrod</option>
+                                                                                    <option value="252">Central Térmica de Ressano Garcia, SA</option>
+                                                                                    <option value="253">Mozal</option>
+                                                                                    <option value="254">Dynamiss Trading</option>
+                                                                                    <option value="255">Serviço Distrital da Educação, Juventude e Tecnologia - SDEJT</option>
+                                                                                    <option value="256">Soda Serviços</option>
+                                                                                    <option value="257">Soda Serviços</option>
+                                                                                    <option value="258">Matilda Minerals</option>
+                                                                                    <option value="259">Hospitec</option>
+                                                                                    <option value="260">CENTRO DE ESTUDOS PARA O DESENVOLVIMENTO DA ZAMBÉZIA</option>
+                                                                                    <option value="261">Innovate IT Africa</option>
+                                                                                    <option value="262">ICEI - Instituto de Cooperação Económica Internacional</option>
+                                                                                    <option value="263">SRHR Africa Trust - SAT</option>
+                                                                                    <option value="264">ALS INSPECTION Mozambique Service</option>
+                                                                                    <option value="265">ETJV - ENHL-TechnipFMC</option>
+                                                                                    <option value="266">Qubo Consulting</option>
+                                                                                    <option value="267">Mbira Advisory</option>
+                                                                                    <option value="268">Crede Mozambique</option>
+                                                                                    <option value="269">CTRG - Central Térmica de Ressano Garcia</option>
+                                                                                    <option value="270">Instituto Nacional de Estatística</option>
+                                                                                    <option value="271">União Europeia</option>
+                                                                                    <option value="272">Associação Moçambicana de Energias Renováveis – AMER</option>
+                                                                                    <option value="273">Restaurante Azzona</option>
+                                                                                    <option value="274">Diamond Seguros</option>
+                                                                                    <option value="275">Paginas Amarelas</option>
+                                                                                    <option value="276">Blue Lda</option>
+                                                                                    <option value="277">ISCED - Instituto Superior de Ciências e Educação a Distância</option>
+                                                                                    <option value="278">TPLA – Taciana Peão Lopes e Advogados Associados</option>
+                                                                                    <option value="279">Helvetas Swiss Intercooperation</option>
+                                                                                    <option value="280">DT Global</option>
+                                                                                    <option value="281">CEFA - Comité Europeu para Formação e Agricultura</option>
+                                                                                    <option value="282">Centrocar Moçambique</option>
+                                                                                    <option value="283">Centrocar Moçambique</option>
+                                                                                    <option value="284">Right To Play</option>
+                                                                                    <option value="285">Helen Keller International</option>
+                                                                                    <option value="286">Handicap International</option>
+                                                                                    <option value="287">Handicap International</option>
+                                                                                    <option value="288">WSUP</option>
+                                                                                    <option value="289">WSUP</option>
+                                                                                    <option value="290">Diamond Seguros</option>
+                                                                                    <option value="291">MSNJ - Sociedade de Advogados</option>
+                                                                                    <option value="292">Transportes ideal</option>
+                                                                                    <option value="293">MCC – Manutenção e Construção Civil</option>
+                                                                                    <option value="294">UNHCR - United Nations High Commissioner for Refugees</option>
+                                                                                    <option value="295">Five Star</option>
+                                                                                    <option value="296">Oxfam</option>
+                                                                                    <option value="297">ULTRA Wellness</option>
+                                                                                    <option value="298">NCBA CLUSA</option>
+                                                                                    <option value="299">Casa do Agricultor</option>
+                                                                                    <option value="300">ICEI - Instituto de Cooperação Económica Internacional</option>
+                                                                                    <option value="301">Tropical Health</option>
+                                                                                    <option value="302">World Education Inc.</option>
+                                                                                    <option value="303">The Aspen Institute, AMP Health</option>
+                                                                                    <option value="304">PwC - PricewaterhouseCoopers</option>
+                                                                                    <option value="305">PwC - PricewaterhouseCoopers</option>
+                                                                                    <option value="306">AMPCM - Associação Moçambicana de Promoção do Cooperativismo Moderno</option>
+                                                                                    <option value="307">RTI Internacional</option>
+                                                                                    <option value="308">Oceanpath Moçambique</option>
+                                                                                    <option value="309">ACDI/VOCA</option>
+                                                                                    <option value="310">DI AFRICA</option>
+                                                                                    <option value="311">Fundação de Caridade Tzu Chi Moçambique</option>
+                                                                                    <option value="312">PANLEEN</option>
+                                                                                    <option value="313">COWI</option>
+                                                                                    <option value="314">Blue Ventures</option>
+                                                                                    <option value="315">Blue Ventures</option>
+                                                                                    <option value="316">Montepuez Ruby Mining</option>
+                                                                                    <option value="317">Helvetas Swiss Intercooperation</option>
+                                                                                    <option value="318">UnISCED - Instituto Superior de Ciências e Educação a Distância</option>
+                                                                                    <option value="319">ULTRA</option>
+                                                                                    <option value="320">ULTRA</option>
+                                                                                    <option value="321">Matsequenha Pedreira</option>
+                                                                                    <option value="322">Grupo Entreposto</option>
+                                                                                    <option value="323">Mozambique Insurance Agents</option>
+                                                                                    <option value="324">Blue Ventures</option>
+                                                                                    <option value="325">Prime Yield Mozambique</option>
+                                                                                    <option value="326">Gain - Global Alliance for Improved Nutrition</option>
+                                                                                    <option value="327">PCI Media</option>
+                                                                                    <option value="328">Balama</option>
+                                                                                    <option value="329">Atitude</option>
+                                                                                    <option value="330">Perfumaria de Moçambique</option>
+                                                                                    <option value="331">Alto Comissariado Britânico</option>
+                                                                                    <option value="332">Cruz Vermelha de Moçambique</option>
+                                                                                    <option value="333">Espetacular</option>
+                                                                                    <option value="334">WWF</option>
+                                                                                    <option value="335">CFAO Motors Mozambique</option>
+                                                                                    <option value="336">CTRG - Central Térmica de Ressano Garcia</option>
+                                                                                    <option value="337">CFAO Motors Mozambique</option>
+                                                                                    <option value="338">Welcome Serviços</option>
+                                                                                    <option value="339">Motorcare</option>
+                                                                                    <option value="340">Hospital Provincial de Tete</option>
+                                                                                    <option value="341">Management Systems International</option>
+                                                                                    <option value="342">Fundação de Caridade Tzu Chi Moçambique</option>
+                                                                                    <option value="343">Viamo</option>
+                                                                                    <option value="344">Eurotresa, Lda</option>
+                                                                                    <option value="345">MyBucks Mozambique</option>
+                                                                                    <option value="346">Tree Consulting</option>
+                                                                                    <option value="347">UX Information Technologies</option>
+                                                                                    <option value="348">JCDecaux</option>
+                                                                                    <option value="349">Oikos - Cooperação e Desenvolvimento</option>
+                                                                                    <option value="350">SECON – Serviço de Engenharia e Consultoria</option>
+                                                                                    <option value="351">Casino Marina</option>
+                                                                                    <option value="352">IBTCI - International Business and Technical Consultants</option>
+                                                                                    <option value="353">Fauna &amp; Flora International</option>
+                                                                                    <option value="354">DECA</option>
+                                                                                    <option value="355">Comercial Sénior (m/f)</option>
+                                                                                    <option value="356">vdt</option>
+                                                                                    <option value="357">vdt</option>
+                                                                                    <option value="358">VdE Empregos</option>
+                                                                                    <option value="372">cism</option>
+                                                                                    <option value="373">MISSAO</option>
+                                                                                    <option value="374">Solidarites International</option>
+                                                                                    <option value="375">DALIMA</option>
+                                                                                    <option value="376">WASSHA MOZAMBIQUE</option>
+                                                                                    <option value="381">BHR</option>
+                                                                                    <option value="383">Peace Corps Mocambique</option>
+                                                                                    <option value="386">Care International</option>
+                                                                                    <option value="390">MozComputers</option>
+                                                                                    <option value="391">Chemonics</option>
+                                                                                    <option value="396">A ChildFund Mozambique</option>
+                                                                                    <option value="422">Mentor Initiative</option>
+                                                                                    <option value="542">ISEDEL</option>
+                                                                                    <option value="544">Futuro MCB, S.A</option>
+                                                                            </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class=" form-control-label">
+                                        Categoria <span class="text-danger"><b>*</b></span>
+                                        <a class="btn btn-primary btn-sm text-white" data-toggle="modal" data-target="#addCategoryOpportunity">
+                                            Add
+                                        </a>
+                                    </label>
+                                    <select name="category" id="category" class="form-control form-control-sm">
+                                        <option selected="" hidden="" disabled="">Selecionar Categoria</option>
+                                    <option value="145">Operador, Supervisão e Coordenação</option>
+                                                                                    <option value="146">operador</option>
+                      ion value="156">Finanças e Contabilidade</option>
+                                           <option value="184">Assistente de Cadeia de Valores</option>
+                                                                            </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for="type">Tipo de Oportunidade</label>
+                                    <select name="type" id="type" class="form-control form-control-sm">
+                                        <option selected="" hidden="" disabled="">Selecionar Tipo</option>
+                                                                                    <option value="1">Compra</option>
+                                                                                    <option value="2">Venda</option>
+                                                                                    <option value="3">Aluguer</option>
+                                                                                    <option value="4">Prestação de serviços</option>
+                                                                                    <option value="5">Outra</option>
+                                                                            </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="start">Data Inicio</label>
+                                    <input type="datetime-local" class="form-control form-control-sm" id="start" name="start">
+                                                                    </div>
+                                <div class="col-sm-4">
+                                    <label for="end">Data Fim</label>
+                                    <input type="datetime-local" class="form-control form-control-sm" id="end" name="end">
+                                                                    </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-12">
+                                    <label class=" form-control-label">Conteúdo  <span class="text-danger"><b>*</b></span> <small class="text-success">Descricao completa da oportunidade (Valores, Tipo, Contactos, Emails, etc)</small></label>
+                                    <textarea name="content" id="content" rows="6" placeholder="Descrição da Vaga" class="form-control" placeholder=></textarea>  </textarea>
+                                </div>
+                                <script>
+                                    CKEDITOR.replace( 'content',{    
+                                        filebrowserBrowseUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/ckfinder.html?Type=Files",
+                                        filebrowserImageBrowseUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/ckfinder.html?Type=Images",
+                                        filebrowserFlashBrowseUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/ckfinder.html?Type=Flash",
+                                        filebrowserUploadUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files",
+                                        filebrowserImageUploadUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/core/connctor/php/connector.php?command=QuickUpload&amp;type=Images",
+                                        filebrowserFlashUploadUrl: "https://sabetudo.co.mz/admin/assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash"
+                                    });
+                                </script>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header"><strong>Mais</strong><small> Opções</small></div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Publicar
+                            </button>
+                        </div>
+                        <div class="card-body card-block">
+
+                            <div class="form-group">
+                                <label class=" form-control-label">
+                                    Provincia <span class="text-danger"><b>*</b></span>
+                                </label>
+                                <select name="province" id="province" class="form-control form-control-sm">
+                                    <option selected="" disabled="" hidden=""> Selecionar provincia</option>
+                                                                            <option value="1">Maputo</option>
+                                                                            <option value="2">Gaza</option>
+                                                                            <option value="3">Inhambane</option>
+                                                                            <option value="4">Sofala</option>
+                                                                            <option value="5">Manica</option>
+                                                                            <option value="6">Tete</option>
+                                                                            <option value="7">Niassa</option>
+                                                                            <option value="8">Cabo Delgado</option>
+                                                                            <option value="9">Nampula</option>
+                                                                            <option value="10">Zambezia</option>
+                                                                    </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address" class=" form-control-label">Endereço <span class="text-danger"><b>*</b></span></label>
+                                <input type="text" id="address" name="address" class="form-control form-control-sm" placeholder="Escreva o endereço">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact" class=" form-control-label">Contacto <span class="text-danger"><b>*</b></span></label>
+                                <input type="text" id="contact" name="contact" class="form-control form-control-sm" placeholder="Escreva o contacto">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class=" form-control-label">Email</label>
+                                <input type="text" id="email" name="email" class="form-control form-control-sm" placeholder="Escreva o email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="publication" class=" form-control-label">Agendar publicação</label>
+                                <input type="date" id="publication" name="publication" placeholder="Data de publicação" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<form id="opportunityCategoryForm" method="POST" enctype="multipart/form-data" action="https://sabetudo.co.mz/gestao/oportunidades/adicionarCategoria">
+	<input type="hidden" name="_token" value="a8HYjZWAwwjG7HGiCcLsx9N6rf8UAE5l4gQPOoA1">
+    <div class="modal fade" id="addCategoryOpportunity" tabindex="-1" role="dialog" aria-labelledby="ModalCategory" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+			<div class="modal-content border-0 rounded-0">
+				<div class="modal-header">
+					<h5 class="modal-title" id="ModalCategory"><b>Adicionar Categoria</b></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+					</button>
+                </div>
+                
+				<div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group input-group">
+                                <input name="category" class="form-control" placeholder="Nome da Categoria" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<button type="submit" class="btn btn-warning">Adicionar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+<form id="entityOpportunityForm" method="POST" enctype="multipart/form-data" action="https://sabetudo.co.mz/gestao/oportunidades/adicionarEntidade">
+	<input type="hidden" name="_token" value="a8HYjZWAwwjG7HGiCcLsx9N6rf8UAE5l4gQPOoA1"><div class="modal fade" id="addOpportunityEntity" tabindex="-1" role="dialog" aria-labelledby="ModalEntity" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+			<div class="modal-content border-0">
+				<div class="modal-header">
+					<h5 class="modal-title" id="ModalEntity"><b>Adicionar Entidade</b></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group input-group">
+                                <input name="name_entity" class="form-control" placeholder="Nome da Entidade" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group input-group">
+                        <div class="form-group input-group">
+                            <textarea name="entity_description" id="entity_description" placeholder="Descrição" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div> 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<button type="submit" class="btn btn-warning">Adicionar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+ 
+    </div>
+
+    <script src="https://sabetudo.co.mz/admin/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/jszip/dist/jszip.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/assets/js/init-scripts/data-table/datatables-init.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/assets/js/dashboard.js"></script>
+<script src="https://sabetudo.co.mz/admin/assets/js/widgets.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="https://sabetudo.co.mz/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="https://sabetudo.co.mz/admin/assets/plugins/select/js/bootstrap-select.min.js"></script>
+<script>
+    (function($) {
+        "use strict";
+
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#1de9b6',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#1de9b6', '#03a9f5'],
+            normalizeFunction: 'polynomial'
+        });
+    })(jQuery);
+</script><div class="jqvmap-label" style="display: none;"></div>
+<script src="https://sabetudo.co.mz/admin/assets/js/imageareaselect.js"></script>
+
+<script src="https://sabetudo.co.mz/admin/assets/js/main.js"></script>
+
+
+
+<div id="torrent-scanner-popup" style="display: none;"></div></body></html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Adicionar Oportunidade</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+    <link href="https://sabetudo.co.mz/admin/assets/plugins/select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://sabetudo.co.mz/images/favicon.png">
+
+    <script src="https://sabetudo.co.mz/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/assets/css/imgareaselect.css">
+    
+    <link rel="stylesheet" href="https://sabetudo.co.mz/admin/assets/css/style.css">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
