@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #ced1d9; /* Cor de fundo da barra lateral */
+            color: #333; /* Cor do texto na barra lateral */
+            width: 250px;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #333; /* Cor dos links na barra lateral */
+            text-decoration: none;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea,
+        select,
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto no botão */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+        }
+
+        .sidebar-right {
+            background-color: #ced1d9; /* Cor de fundo da barra lateral direita */
+            color: #333; /* Cor do texto na barra lateral direita */
+            width: 250px;
+            padding: 20px;
+            margin-left: auto; /* Alinhar à direita */
+        }
+
+        .sidebar-right h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <h2>Painel de Control</h2>
+        <ul>
+            <!-- Botão para abrir o formulário de adição de notícias -->
+            <li>
+                <a href="#" id="btn-search" class="sidebar-btn"><i class="fa fa-newspaper-o"></i> Painel de Gestão</a>
+            </li>
+            <li>
+                <a href="#" id="btn-news" class="sidebar-btn"><i class="fa fa-newspaper-o"></i> Adicionar Notícia</a>
+            </li>
+
+            <!-- Botão para abrir o formulário de adição de empregos -->
+            <li>
+                <a href="#" id="btn-jobs" class="sidebar-btn"><i class="fa fa-briefcase"></i> Adicionar Emprego</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <h1>Bem-vindo à Gestão</h1>
+        <p>Esta é uma dashboard sofisticada e profissional, criada para fornecer uma experiência excepcional aos usuários. Sinta-se à vontade para navegar pelos recursos e funcionalidades disponíveis.</p>
+            <!-- Conteúdo principal -->
+        <div class="content">
+        <h1>Bem-vindo à Dashboard</h1>
+        
+        <!-- Formulário de pesquisa -->
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Pesquisar vagas...">
+            <button type="submit">Pesquisar</button>
+        </form>
+        
+        <!-- Lista de todas as vagas publicadas -->
+        <h2>Todas as Vagas Publicadas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome da Vaga</th>
+                    <th>Empresa</th>
+                    <th>Categoria</th>
+                    <!-- Adicione mais colunas conforme necessário -->
+                </tr>
+            </thead>
+            <tbody id="vagas-list">
+                <!-- Aqui as vagas serão listadas dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+    
+        <!-- Formulário de Adicionar Notícia -->
+        <div id="news-form" style="display: none;">
+            <h2>Adicionar Notícia</h2>
+            <form action="/adicionar-noticia" method="POST">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required><br><br>
+                <label for="conteudo">Conteúdo:</label><br>
+                <textarea id="conteudo" name="conteudo" rows="4" cols="50" required></textarea><br><br>
+                <button type="submit">Adicionar Notícia</button>
+            </form>
+        </div>
+
+        <!-- Formulário de Adicionar Emprego -->
+        <div id="jobs-form" style="display: none;">
+            <h2>Adicionar Emprego</h2>
+            <form action="/adicionar-emprego" method="POST">
+                <div class="form-group">
+                    <label for="nome_vaga">Nome da Vaga:</label>
+                    <input type="text" id="nome_vaga" name="nome_vaga" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Pequena Descrição:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoria_vaga">Categoria da Vaga:</label>
+                    <select id="categoria_vaga" name="categoria_vaga" required>
+                        <option value="1">Categoria 1</option>
+                        <option value="2">Categoria 2</option>
+                        <option value="1">Ministério da Agricultura e Segurança Alimentar</option>
+                        <option value="2">Administração Nacional das Estradas</option>
+                        <option value="3">Administração Nacional das Estradas</option>
+                        <option value="4">Administração Nacional das Estradas</option>
+                        <option value="5">A Hidroelétrica de Cahora Bassa</option>
+                        <option value="6">Hidroelétrica de Cahora Bassa</option>
+                        <option value="7">Direcção Provincial da Economia e Finanças</option>
+                        <option value="11">UNICEF</option>
+                        <option value="12">Republica de Mocambique</option>
+                        <option value="13">Total</option>
+                        <option value="14">Standard Banck</option>
+                        <option value="15">Standard Bank</option>
+                        <option value="16">do Instituto Nacional de Desenvolvimento da Pesca e Aquacultura</option>
+                       <option value="20">Hidroeléctrica de Cahora Bassa</option>
+                        <option value="21">Direcção Nacional de Gestão de Recursos</option>
+                        <option value="22">Serviço Provincial De Economia E Finanças</option>
+                        <option value="23">Serviço Provincial De Economia E Finanças</option>
+                        <option value="24">Serviço Provincial De Economia E Finanças</option>
+                        <option value="25">Serviço Provincial De Economia E Finanças</option>
+                        <option value="26">Fundo Nacional de Desenvolvimento Sustentavel</option>
+                        <option value="27">MSPH ICAP</option>
+                        <option value="28">MSPH ICAP</option>
+                        <option value="29">Banco de Moçambique</option>
+                        <option value="30">Sociedade de Noticias.</option>
+                        <option value="31">Plan International</option>
+                       <option value="35">Sociedade de Desenvolvimento Urbano da Beira</option>
+                        <option value="38">Kenmare Resources pic</option>
+                        <option value="40">Movitel</option>
+                        <option value="42">ADPP Moçambique</option>
+                        <option value="43">Instituto Superior Politécnico de Songo</option>
+                        <option value="44">Programa das Nações Unidas para o Desenvolvimento</option>
+                        <option value="45">Eletricidade de Moçambique</option>
+                        <option value="46">Instituto Nacional de Governo Electrónico</option>
+                        <option value="47">Instituto Nacional de Gestão de Calamidades</option>
+                        <option value="48">Alto Comissariado Britânico Maputo</option>
+                        <option value="49">Sasol</option>
+                        <option value="50">Giz</option>
+                        <option value="51">Instituto de Amêndoas de Moçambique</option>
+                        <option value="52">Snv Organização Holandesa De Desenvolvimento</option>
+                        <option value="53">Fundo Nacional de Energia</option>
+                        <option value="54">Universidade Lúrio - UniLúrio</option>
+                        <option value="55">JHPIEGO Mozambique</option>
+                        <option value="56">Instituto Nacional de Inspecçào do Pescado,</option>
+                        <option value="57">Fundo de Energia</option>
+                        <option value="58">Liga Moçambicana de Futebol</option>
+                        <option value="59">C.Holdings</option>
+                        <option value="60">Aldeia de Crianças SOS Moçambique</option>
+                        <option value="61">Ministério da Saúde</option>
+                        <option value="62">TECHNOSERVE</option>
+                        <option value="63">Anónima</option>
+                        <option value="64">CISM</option>
+                        <option value="65">CISM</option>
+                        <option value="66">CRH Consultores</option>
+                        <option value="67">CRH Consultores</option>
+                        <option value="68">Istituto Oikos</option>
+                        <option value="69">Istituto Oikos</option>
+                        <option value="70">Helpcode Itália</option>
+                        <option value="71">MyBucks Mozambique</option>
+                        <option value="72">Elizabeth Glazer Peditric AIDS Foundation</option>
+                        <option value="73">Contact</option>
+                        <option value="74">Contact</option>
+                        <option value="75">h2n</option>
+                        <option value="76">h2n</option>
+                        <option value="77">SDO Mocambique</option>
+                        <option value="78">Fenix International</option>
+                        <option value="79">ESSOR</option>
+                        <option value="80">Aguas de Goba</option>
+                        <option value="81">Mabjeca Interior Design &amp; Services Lda</option>
+                        <option value="82">Mabjeca Interior Design &amp; Services Lda.</option>
+                        <option value="83">PHC Software</option>
+                        <option value="84">PHC Software</option>
+                        <option value="85">Lugela Digital Tecnicos</option>
+                        <option value="86">Lugela Digital Tecnicos</option>
+                        <option value="87">Lugela Digital Tecnicos</option>
+                        <option value="88">Lugela Digital Tecnicos</option>
+                        <option value="89">Aldelia</option>
+                        <option value="90">Aldelia</option>
+                        <option value="91">Conect Plus</option>
+                        <option value="92">World Vision Moçambique</option>
+                        <option value="93">Venyl Connection Services</option>
+                        <option value="94">Venyl Connection Services</option>
+                        <option value="95">Venyl Connection Services</option>
+                        <option value="96">Comité Internacional Da Cruz Vermelha</option>
+                        <option value="97">Aga Khan Academies</option>
+                        <option value="98">Aga Khan Academies</option>
+                        <option value="99">Aga Khan Academies</option>
+                        <option value="100">Negrita Industrial</option>
+                        <option value="101">Coral FLNG - FLNG</option>
+                        <option value="102">Coral FLNG - FLNG</option>
+                        <option value="103">Coral FLNG - FLNG</option>
+                        <option value="104">Coral FLNG - FLNG</option>
+                        <option value="105">MozGrain</option>
+                        <option value="106">MozGrain</option>
+                        <option value="107">MozGrain</option>
+                        <option value="108">CESC</option>
+                        <option value="109">CESC</option>
+                        <option value="110">PRI</option>
+                        <option value="111">PRI</option>
+                        <option value="112">Heading Moçambique</option>
+                        <option value="113">Heading Moçambique</option>
+                        <option value="114">Heading Moçambique</option>
+                        <option value="115">UNHCR</option>
+                        <option value="116">UNHCR</option>
+                        <option value="117">Elephant Bet Mozambique</option>
+                        <option value="118">Elephant Bet Mozambique</option>
+                        <option value="119">Tecnica PC</option>
+                        <option value="120">TechZone</option>
+                        <option value="121">Medihealth - Planos de Saúde, Limitada</option>
+                        <option value="122">Medihealth - Planos de Saúde, Limitada</option>
+                        <option value="123">Medihealth - Planos de Saúde, Limitada</option>
+                        <option value="124">Medihealth - Planos de Saúde, Limitada</option>
+                        <option value="125">Save The Children</option>
+                        <option value="126">Save The Children</option>
+                        <option value="127">CNFA</option>
+                        <option value="128">CNFA</option>
+                        <option value="129">JSI - John Snow Incorporated</option>
+                        <option value="130">JSI - John Snow Incorporated</option>
+                        <option value="131">JSI - John Snow Incorporated</option>
+                        <option value="132">Inther-Beira</option>
+                        <option value="133">Inther-Beira</option>
+                        <option value="134">Inther-Beira</option>
+                        <option value="135">Enviroserv</option>
+                        <option value="136">Muhlbauer ID Services GmbH</option>
+                        <option value="137">Muhlbauer ID Services GmbH</option>
+                        <option value="138">Muhlbauer ID Services GmbH</option>
+                        <option value="139">Sonepral Mozambique</option>
+                        <option value="140">Sonepral Mozambique</option>
+                        <option value="141">Sonepral Mozambique</option>
+                        <option value="142">IRRI</option>
+                        <option value="143">IRRI</option>
+                        <option value="144">Médicos Sem Fronteiras</option>
+                        <option value="145">Médicos Sem Fronteiras</option>
+                        <option value="146">SolarWorks</option>
+                        <option value="147">MOBI</option>
+                        <option value="148">MOBI</option>
+                        <option value="149">MOBI</option>
+                        <option value="150">ENABEL</option>
+                        <option value="151">ENABEL</option>
+                        <option value="152">Girl Child Rights (GCR)</option>
+                        <option value="153">Girl Child Rights (GCR)</option>
+                        <option value="154">Catholic Relief Services (CRS)</option>
+                        <option value="155">Catholic Relief Services (CRS)</option>
+                        <option value="156">MD Consultores</option>
+                        <option value="157">MD Consultores</option>
+                        <option value="158">MD Consultores</option>
+                        <option value="159">MD Consultores</option>
+                        <option value="160">MD Consultores</option>
+                        <option value="161">MD Consultores</option>
+                        <option value="162">MD Consultores</option>
+                        <option value="163">MD Consultores</option>
+                        <option value="164">Zenysis</option>
+                        <option value="165">SGB-Cape Mozambique</option>
+                        <option value="166">ACOMODEU</option>
+                        <option value="167">SOCODEVI</option>
+                        <option value="168">SOCODEVI</option>
+                        <option value="169">Ariel Glaser Pediatric AIDS Foundation</option>
+                        <option value="170">Aplitec</option>
+                        <option value="171">MECO Empreendimentos</option>
+                        <option value="172">MECO Empreendimentos</option>
+                        <option value="173">ITA, Sociedade Unipessoal, Lda</option>
+                        <option value="174">VITA, Sociedade Unipessoal, Lda</option>
+                        <option value="175">VITA, Sociedade Unipessoal, Lda</option>
+                        <option value="176">Food for the Hungry Association</option>
+                        <option value="177">SDDEC</option>
+                        <option value="178">USAID</option>
+                        <option value="179">technipFMC</option>
+                        <option value="180">Arene</option>
+                        <option value="181">Real Moz.</option>
+                        <option value="182">Nitidae</option>
+                        <option value="183">Empresa Anoninim</option>
+                        <option value="184">Empresa Anoninima</option>
+                        <option value="185">Empresa Anonima</option>
+                        <option value="186">WCS - Wildlife Conservation Society</option>
+                        <option value="187">BAT Mozambique</option>
+                        <option value="188">Abt Associates</option>
+                        <option value="189">UNFPA</option>
+                        <option value="190">UNFPA</option>
+                        <option value="191">ASSOCIAÇÃO PROGRESSO</option>
+                        <option value="192">Embaixada dos Estados Unidos</option>
+                        <option value="193">AMOR - Associação Moçambicana de Reciclagem</option>
+                        <option value="194">PSI - Population Services International</option>
+                        <option value="195">On Time Investiment</option>
+                        <option value="196">On Time Investiment</option>
+                        <option value="197">On Time Investiment</option>
+                        <option value="198">Jembi Health Systems</option>
+                        <option value="199">Instituto Técnico Lugenda de Ciências de Saúde</option>
+                        <option value="200">Serviço de Justiça e Trabalho</option>
+                        <option value="201">Associação Kulungwana</option>
+                        <option value="202">Diakonie Katastrophenhilfe</option>
+                        <option value="203">VillageReach</option>
+                        <option value="204">REPSSI</option>
+                        <option value="205">REPSSI</option>
+                        <option value="206">2iBi software</option>
+                        <option value="207">CICV - Comité Internacional da Cruz Vermelha</option>
+                        <option value="208">SOCODEVI</option>
+                        <option value="209">Eazi Access Rental</option>
+                        <option value="210">EDUdigital</option>
+                        <option value="211">Opushea</option>
+                        <option value="212">Tree Consulting Lda</option>
+                        <option value="213">ENGIE Energy Access Moçambique</option>
+                        <option value="214">Amado Mobílias, Lda</option>
+                        <option value="215">ITEC</option>
+                        <option value="216">Creative</option>
+                        <option value="217">Chemonics</option>
+                        <option value="218">Thinkwell</option>
+                        <option value="219">FHI 360</option>
+                        <option value="220">FDC</option>
+                        <option value="221">Medicos Del Mundo</option>
+                        <option value="222">GK Ancuabe Graphite Mine</option>
+                        <option value="223">World Education Inc.</option>
+                        <option value="224">N'weti</option>
+                        <option value="225">Girl Child Rights - GCR</option>
+                        <option value="226">Good Neighbors International Mozambique</option>
+                        <option value="227">Matchedje Manutenção</option>
+                        <option value="228">Associação Hankoni de PVHS e Simpatizantes - Hankoni</option>
+                        <option value="229">Helpcode Italia</option>
+                        <option value="230">Kotra</option>
+                        <option value="231">Fundación Ayuda en Acción</option>
+                        <option value="232">Moz Rigging Consultings &amp; Services Limitada</option>
+                        <option value="233">Eco Farm Mocambique, Lda</option>
+                        <option value="234">Lancet Laboratórios</option>
+                        <option value="235">Kutiza Consultoria &amp; Serviços</option>
+                        <option value="236">TearFund</option>
+                        <option value="237">TearFund</option>
+                        <option value="238">BVi Engenheiros Consultores Moçambique Lda.</option>
+                        <option value="239">Tablu Tecnologias, Lda</option>
+                        <option value="240">Eco Farm Mocambique, Lda</option>
+                        <option value="241">Peace Parks Foundation</option>
+                        <option value="242">Estúdio Atelier</option>
+                        <option value="243">DAI</option>
+                        <option value="244">Adra Moçambique</option>
+                        <option value="245">Governo do Distrito de Ibo</option>
+                        <option value="246">Cimentos de Moçambique</option>
+                        <option value="247">FGH – Friends in Global Health</option>
+                        <option value="248">Médicos com África CUAMM</option>
+                        <option value="249">Parmalat</option>
+                        <option value="250">Macs in Moz</option>
+                        <option value="251">Grindrod</option>
+                        <option value="252">Central Térmica de Ressano Garcia, SA</option>
+                        <option value="253">Mozal</option>
+                        <option value="254">Dynamiss Trading</option>
+                        <option value="255">Serviço Distrital da Educação, Juventude e Tecnologia - SDEJT</option>
+                        <option value="256">Soda Serviços</option>
+                        <option value="257">Soda Serviços</option>
+                        <option value="258">Matilda Minerals</option>
+                        <option value="259">Hospitec</option>
+                        <option value="260">CENTRO DE ESTUDOS PARA O DESENVOLVIMENTO DA ZAMBÉZIA</option>
+                        <option value="261">Innovate IT Africa</option>
+                        <option value="262">ICEI - Instituto de Cooperação Económica Internacional</option>
+                        <option value="263">SRHR Africa Trust - SAT</option>
+                        <option value="264">ALS INSPECTION Mozambique Service</option>
+                        <option value="265">ETJV - ENHL-TechnipFMC</option>
+                        <option value="266">Qubo Consulting</option>
+                        <option value="267">Mbira Advisory</option>
+                        <option value="268">Crede Mozambique</option>
+                        <option value="269">CTRG - Central Térmica de Ressano Garcia</option>
+                        <option value="270">Instituto Nacional de Estatística</option>
+                        <option value="271">União Europeia</option>
+                        <option value="272">Associação Moçambicana de Energias Renováveis – AMER</option>
+                        <option value="273">Restaurante Azzona</option>
+                        <option value="274">Diamond Seguros</option>
+                        <option value="275">Paginas Amarelas</option>
+                        <option value="276">Blue Lda</option>
+                        <option value="277">ISCED - Instituto Superior de Ciências e Educação a Distância</option>
+                        <option value="278">TPLA – Taciana Peão Lopes e Advogados Associados</option>
+                        <option value="279">Helvetas Swiss Intercooperation</option>
+                        <option value="280">DT Global</option>
+                        <option value="281">CEFA - Comité Europeu para Formação e Agricultura</option>
+                        <option value="282">Centrocar Moçambique</option>
+                        <option value="283">Centrocar Moçambique</option>
+                        <option value="284">Right To Play</option>
+                        <option value="285">Helen Keller International</option>
+                        <option value="286">Handicap International</option>
+                        <option value="287">Handicap International</option>
+                        <option value="288">WSUP</option>
+                        <option value="289">WSUP</option>
+                        <option value="290">Diamond Seguros</option>
+                        <option value="291">MSNJ - Sociedade de Advogados</option>
+                        <option value="292">Transportes ideal</option>
+                        <option value="293">MCC – Manutenção e Construção Civil</option>
+                        <option value="294">UNHCR - United Nations High Commissioner for Refugees</option>
+                        <option value="295">Five Star</option>
+                        <option value="296">Oxfam</option>
+                        <option value="297">ULTRA Wellness</option>
+                        <option value="298">NCBA CLUSA</option>
+                        <option value="299">Casa do Agricultor</option>
+                        <option value="300">ICEI - Instituto de Cooperação Económica Internacional</option>
+                        <option value="301">Tropical Health</option>
+                        <option value="302">World Education Inc.</option>
+                        <option value="303">The Aspen Institute, AMP Health</option>
+                        <option value="304">PwC - PricewaterhouseCoopers</option>
+                        <option value="305">PwC - PricewaterhouseCoopers</option>
+                        <option value="306">AMPCM - Associação Moçambicana de Promoção do Cooperativismo Moderno</option>
+                        <option value="307">RTI Internacional</option>
+                        <option value="308">Oceanpath Moçambique</option>
+                        <option value="309">ACDI/VOCA</option>
+                        <option value="310">DI AFRICA</option>
+                        <option value="311">Fundação de Caridade Tzu Chi Moçambique</option>
+                        <option value="312">PANLEEN</option>
+                        <option value="313">COWI</option>
+                        <option value="314">Blue Ventures</option>
+                        <option value="315">Blue Ventures</option>
+                        <option value="316">Montepuez Ruby Mining</option>
+                        <option value="317">Helvetas Swiss Intercooperation</option>
+                        <option value="318">UnISCED - Instituto Superior de Ciências e Educação a Distância</option>
+                        <option value="319">ULTRA</option>
+                        <option value="320">ULTRA</option>
+                        <option value="321">Matsequenha Pedreira</option>
+                        <option value="322">Grupo Entreposto</option>
+                        <option value="323">Mozambique Insurance Agents</option>
+                        <option value="324">Blue Ventures</option>
+                        <option value="325">Prime Yield Mozambique</option>
+                        <option value="326">Gain - Global Alliance for Improved Nutrition</option>
+                        <option value="327">PCI Media</option>
+                        <option value="328">Balama</option>
+                        <option value="329">Atitude</option>
+                        <option value="330">Perfumaria de Moçambique</option>
+                        <option value="331">Alto Comissariado Britânico</option>
+                        <option value="332">Cruz Vermelha de Moçambique</option>
+                        <option value="333">Espetacular</option>
+                        <option value="334">WWF</option>
+                        <option value="335">CFAO Motors Mozambique</option>
+                        <option value="336">CTRG - Central Térmica de Ressano Garcia</option>
+                        <option value="337">CFAO Motors Mozambique</option>
+                        <option value="338">Welcome Serviços</option>
+                        <option value="339">Motorcare</option>
+                        <option value="340">Hospital Provincial de Tete</option>
+                        <option value="341">Management Systems International</option>
+                        <option value="342">Fundação de Caridade Tzu Chi Moçambique</option>
+                        <option value="343">Viamo</option>
+                        <option value="344">Eurotresa, Lda</option>
+                        <option value="345">MyBucks Mozambique</option>
+                        <option value="346">Tree Consulting</option>
+                        <option value="347">UX Information Technologies</option>
+                        <option value="348">JCDecaux</option>
+                        <option value="349">Oikos - Cooperação e Desenvolvimento</option>
+                        <option value="350">SECON – Serviço de Engenharia e Consultoria</option>
+                        <option value="351">Casino Marina</option>
+                        <option value="352">IBTCI - International Business and Technical Consultants</option>
+                        <option value="353">Fauna &amp; Flora International</option>
+                        <option value="354">DECA</option>
+                        <option value="355">Comercial Sénior (m/f)</option>
+                        <option value="356">vdt</option>
+                        <option value="357">vdt</option>
+                        <option value="358">VdE Empregos</option>
+                        <option value="372">cism</option>
+                        <option value="373">MISSAO</option>
+                        <option value="374">Solidarites International</option>
+                        <option value="375">DALIMA</option>
+                        <option value="376">WASSHA MOZAMBIQUE</option>
+                        <option value="381">BHR</option>
+                        <option value="383">Peace Corps Mocambique</option>
+                        <option value="386">Care International</option>
+                        <option value="390">MozComputers</option>
+                        <option value="391">Chemonics</option>
+                        <option value="396">A ChildFund Mozambique</option>
+                        <option value="422">Mentor Initiative</option>
+                        <option value="542">ISEDEL</option>
+                        <option value="544">Futuro MCB, S.A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Nome da Empresa:</label>
+                    <input type="text" id="empresa" name="empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="data_inicio">Data de Início das Candidaturas:</label>
+                    <input type="date" id="data_inicio" name="data_inicio" required>
+                </div>
+                <div class="form-group">
+                    <label for="data_fim">Data Final das Candidaturas:</label>
+                    <input type="date" id="data_fim" name="data_fim" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao_vaga">Descrição da Vaga:</label>
+                    <textarea id="descricao_vaga" name="descricao_vaga" rows="4"></textarea>
+                </div>
+                <button type="submit">Adicionar Emprego</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Barra lateral direita -->
+    <div class="sidebar-right">
+        <h2>Outras</h2>
+        <div class="form-group">
+            <label for="provincia">Província:</label>
+            <input type="text" id="provincia" name="provincia" required>
+        </div>
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco">
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="contactos">Contactos:</label>
+            <input type="tel" id="contactos" name="contactos" required>
+        </div>
+        <div class="form-group">
+            <label for="agendamento">Agendamento de Publicações:</label>
+            <input type="datetime-local" id="agendamento" name="agendamento">
+        </div>
+        <div class="form-group">
+            <label for="foto">Adicionar Foto:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Seleciona os botões de notícias e empregos
+        const btnNews = document.getElementById('btn-news');
+        const btnJobs = document.getElementById('btn-jobs');
+
+        // Função para abrir o formulário de adição de notícias
+        btnNews.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('news-form').style.display = 'block';
+            document.getElementById('jobs-form').style.display = 'none';
+        });
+
+        // Função para abrir o formulário de adição de empregos
+        btnJobs.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('jobs-form').style.display = 'block';
+            document.getElementById('news-form').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
